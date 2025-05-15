@@ -1,0 +1,355 @@
+/** Variable Imports **/
+@import "./variables.css";
+
+/**
+  CSS Reset
+  Source: https://www.joshwcomeau.com/css/custom-css-reset/
+**/
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+  font-family: var(--fs-base), "sans-serif";
+  font-weight: var(--fw-regular);
+}
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--clr-lightGrayishCyan);
+}
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/** Your CSS Below **/
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background-color: var(--clr-white);
+  width: 950px;
+  margin: 0 auto;
+  padding: 30px 35px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  box-shadow: -2px 38px 108px -64px hsla(172, 87%, 27%, 0.78);
+}
+
+#container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 50px 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+  font-size: 0.8rem;
+  gap: 70px 0;
+}
+
+button {
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+/* Left side of the container  */
+
+#left > div:last-child {
+  position: relative;
+}
+
+#left > div:last-child span {
+  position: absolute;
+  right: 0;
+  color: var(--clr-error);
+}
+
+#tip-select {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+
+#custom-tip {
+  border: 0;
+  text-align: right;
+  background-color: var(--clr-veryLightGrayishCyan);
+  color: var(--clr-veryDarkCyan);
+  width: 100%;
+  padding: 0 10px;
+}
+
+#custom-tip::-webkit-inner-spin-button,
+#custom-tip::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#custom-tip::placeholder {
+  color: var(--clr-veryDarkCyan);
+  text-align: center;
+  opacity: 0.75;
+}
+
+#bill {
+  background-image: url("./assets/images/icon-dollar.svg");
+}
+
+#people {
+  background-image: url("./assets/images/icon-person.svg");
+}
+
+#bill,
+#people {
+  background-position: 15px;
+  background-repeat: no-repeat;
+  color: var(--clr-veryDarkCyan);
+  text-align: right;
+}
+
+#bill::placeholder,
+#people::placeholder {
+  text-align: right;
+  color: var(--clr-grayishCyan);
+}
+
+.tip-button {
+  background-color: var(--clr-veryDarkCyan);
+  border: 0;
+  color: var(--clr-white);
+  padding: 7px 0;
+  font-size: 1.5em;
+}
+
+.tip-button:hover {
+  background-color: hsla(172, 67%, 45%, 0.5);
+  color: var(--clr-veryDarkCyan);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+  color: var(--clr-darkGrayishCyan);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.active {
+  background-color: var(--clr-strongCyan);
+  color: var(--clr-veryDarkCyan);
+}
+
+input,
+.tip-button {
+  border-radius: 5px;
+}
+
+input {
+  border: 0;
+  background-color: var(--clr-veryLightGrayishCyan);
+  padding: 10px 0;
+  outline: none;
+  font-size: 1.5em;
+}
+
+input:focus {
+  outline: 2px solid var(--clr-strongCyan);
+}
+
+input:invalid {
+  outline: 2px solid var(--clr-error);
+}
+
+/* Right side of the container  */
+
+#right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--clr-veryDarkCyan);
+  padding: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#right > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+}
+
+#tip-amount,
+#total-person {
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tip-amount p,
+#total-person p {
+  color: var(--clr-white);
+}
+
+#tip-amount p,
+#tip-amount p span,
+#total-person p,
+#total-person p span {
+  white-space: nowrap;
+}
+
+#tip-amount p span,
+#total-person p span {
+  color: var(--clr-grayishCyan);
+}
+
+#tip-amount p:last-child,
+#total-person p:last-child {
+  color: var(--clr-strongCyan);
+  font-size: 2.8em;
+  font-weight: var(--fw-regular);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  flex: 2;
+}
+
+#right button {
+  border: 0;
+  background-color: var(--clr-strongCyan);
+  padding: 10px 0;
+  border-radius: 5px;
+  color: var(--clr-veryDarkCyan);
+  font-size: 1.4em;
+}
+
+#right button:hover {
+  background-color: var(--clr-lightGrayishCyan);
+}
+
+#right button:disabled {
+  opacity: 0.2;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    font-size: 0.9rem;
+  }
+
+  img {
+    margin-top: 70px;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
+
+  #container > div:first-child {
+    gap: 30px 0;
+  }
+
+  #right {
+    gap: 30px 0;
+    padding: 30px 20px;
+  }
+
+  #bill,
+  #people {
+    padding-right: 10px;
+  }
+
+  #tip-select {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  #tip-amount p,
+  #total-person p {
+    font-size: 0.7em;
+  }
+
+  #tip-amount p:last-child,
+  #total-person p:last-child {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  main {
+    font-size: 0.7rem;
+  }
+
+  #tip-amount p:last-child,
+  #total-person p:last-child {
+    font-size: 1em;
+  }
+}
+
+/** Attribution CSS **/
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
